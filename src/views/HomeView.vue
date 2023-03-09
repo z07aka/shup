@@ -1,7 +1,10 @@
 <template>
   <div class="home">
-    <img alt="Shup Logo" src="../assets/logo.png">
-    <SearchBar title="Start a SHUP!" sid="srb"/>
+    <img src="../assets/logo.png" alt="Shup Logo">
+    <SearchBar 
+      title="Start a SHUP!" 
+      sid="shup-searchbar"
+    />
   </div>
 </template>
 
@@ -10,8 +13,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  position: absolute;
+  top: 50%;
+  margin-top: -25%;
+  user-select: none;
 }
-img{
+
+img {
   width: 40%;
 }
 </style>
@@ -23,6 +32,6 @@ export default {
   name: 'HomeView',
   components: {
     SearchBar
-}
+  }
 }
 </script>

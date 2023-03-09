@@ -1,0 +1,152 @@
+@media (min-width: 1025px) {
+    .search-bar {
+        position: absolute;
+        left: 50%;
+        margin-left: -25%;
+    }
+
+    .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+        gap: 0px 0px;
+    }
+
+    .right-panel {
+        grid-area: 1 / 4 / 6 / 6;
+    }
+
+    .results-container {
+        grid-area: 1 / 1 / 6 / 4;
+    }
+
+    .results {
+        grid-area: 1 / 1 / 4 / 4;
+    }
+
+    .ad {
+        grid-area: 4 / 1 / 5 / 6;
+    }
+
+    .footer {
+        grid-area: 5 / 1 / 6 / 6;
+    }
+}
+
+@media (max-width: 1024px) {
+    .shup-logo {
+        display: none;
+    }
+
+    .search-bar {
+        position: relative;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+        gap: 0px 0px;
+        grid-template-areas:
+            "results results results"
+            "results results results"
+            "results results results"
+            "ad ad ad"
+            "footer footer footer";
+    }
+
+    .results {
+        grid-area: results;
+    }
+
+    .ad {
+        grid-area: ad;
+    }
+
+    .footer {
+        grid-area: footer;
+    }
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 20px;
+    background-color: #ffffee;
+}
+
+.shup-logo {
+    height: 50px;
+}
+
+.search-bar {
+    width: 100%;
+}
+
+.header-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 7.5vh;
+
+    border: none;
+    border-radius: 50px;
+
+    background-color: #FF0000;
+    color: white;
+}
+
+.results-container {
+    margin: 25px;
+}
+
+.results {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.result {
+    padding: 10px;
+    line-height: 0.7;
+}
+
+.result-title {
+    text-decoration: none;
+    color: #566ce7;
+    line-height: 1;
+}
+
+.result-title:hover {
+    text-decoration: 1px underline #566ce7;
+}
+
+.result-link {
+    color: grey;
+    font-size: 10px;
+}
+
+.result-desc {
+    line-height: 1.1;
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    line-height: 0.1;
+    color: white;
+    background-color: #2e3245;
+}
+
+p.bing-creds {
+    color: lightgray;
+    font-size: 10px;
+    font-weight: 200;
+}

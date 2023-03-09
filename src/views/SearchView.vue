@@ -1,9 +1,9 @@
 <template>
   <div class="search">
-    <div class="header"> 
+    <div class="header">
       <a href="/"><img class="shup-logo" src="@/assets/logo.png" alt="shup-logo"></a>
       <div>
-        <SearchBar class="search-bar" :vmodel="query || ''" title="Let's SHUP something!"/>
+        <SearchBar class="search-bar" :vmodel="query || ''" title="Let's SHUP something!" />
       </div>
       <div class="headerButton-spot">
         <button class="headerButton">
@@ -12,17 +12,17 @@
       </div>
     </div>
     <div class="filters">
-      
+
     </div>
     <div class="search-container">
       <div class="basic-results-container">
         <div class="basic-result" v-for="result in reqStore.get_res[0]" :key="result">
-          <div>          
+          <div>
             <a class="result-title" :href="result.url">{{ result.name }}</a>
             <p class="result-link">{{ result.url }}</p>
             <p class="result-desc">{{ result.snippet }}</p>
           </div>
-        </div>        
+        </div>
       </div>
     </div>
   </div>
@@ -30,7 +30,7 @@
 
 <style scoped>
 .header {
-  display: flex;  
+  display: flex;
   justify-content: space-between;
   background-color: #fffded;
   padding: 20px;
@@ -38,6 +38,7 @@
   -webkit-box-shadow: 1px 1px 10px -5px rgba(0, 0, 0, .75);
   -moz-box-shadow: 1px 1px 10px -5px rgba(0, 0, 0, .75)
 }
+
 .basic-result {
   display: flex;
   background: #fff;
@@ -100,6 +101,7 @@
   .shup-logo {
     display: block
   }
+
   .search-bar {
     width: 500px;
   }
@@ -108,7 +110,8 @@
 @media (max-width:1200px) {
   .shup-logo {
     display: none
-  }  
+  }
+
   .search-bar {
     width: 200px;
   }
@@ -148,7 +151,8 @@
 </style>
 
 <style>
-html, body {
+html,
+body {
   background-color: white;
 }
 </style>
@@ -156,9 +160,15 @@ html, body {
 <script>
 import SearchBar from '@/components/SearchBar.vue'
 import https from 'https-browserify'
-import { onMounted } from 'vue'
-import { useRoute } from 'vue-router'
-import { requestStore } from '@/store/index'
+import {
+  onMounted
+} from 'vue'
+import {
+  useRoute
+} from 'vue-router'
+import {
+  requestStore
+} from '@/store/index'
 
 export default {
   name: 'SearchView',
@@ -172,15 +182,48 @@ export default {
     let path = '/v7.0/search'
     let q = useRoute().query.q
     let query = '?q=' + encodeURI(q)
-    let subscriptionKey = 'f5a6e69e4c9047c39666d623dcd2c7c9'
+
+    // ---- START OF OBFUSCATED CODE (SUBKEY) ----
+    const _0x5f584a = _0x3454;
+
+    function _0x3454(_0x439e47, _0x2a16f6) {
+      const _0xfa73c7 = _0xfa73();
+      return _0x3454 = function (_0x345419, _0x489860) {
+        _0x345419 = _0x345419 - 0xc1;
+        let _0x15f20a = _0xfa73c7[_0x345419];
+        return _0x15f20a;
+      }, _0x3454(_0x439e47, _0x2a16f6);
+    }
+
+    function _0xfa73() {
+      const _0x5bfcbf = ['f5a6e69e4c9047c39666d623dcd2c7c9', '3795880JtvTrP', '7GepUMu', '360mikxwL', '220240DyMOkh', '12OLKEzD', '457290kOoOOS', '892953VaQGMn', '1323HeeheH', '582963xsyVlE', '2383614PaEITu', '16qmuTiz'];
+      _0xfa73 = function () {
+        return _0x5bfcbf;
+      };
+      return _0xfa73();
+    }(function (_0x5eac07, _0x4ce703) {
+      const _0x2700ed = _0x3454,
+        _0x2ed928 = _0x5eac07();
+      while (!![]) {
+        try {
+          const _0x133e83 = -parseInt(_0x2700ed(0xcb)) / 0x1 * (parseInt(_0x2700ed(0xc6)) / 0x2) + -parseInt(_0x2700ed(0xcc)) / 0x3 * (-parseInt(_0x2700ed(0xc8)) / 0x4) + parseInt(_0x2700ed(0xc9)) / 0x5 + -parseInt(_0x2700ed(0xc1)) / 0x6 * (-parseInt(_0x2700ed(0xc5)) / 0x7) + parseInt(_0x2700ed(0xc2)) / 0x8 * (-parseInt(_0x2700ed(0xca)) / 0x9) + parseInt(_0x2700ed(0xc7)) / 0xa + -parseInt(_0x2700ed(0xc4)) / 0xb;
+          if (_0x133e83 === _0x4ce703) break;
+          else _0x2ed928['push'](_0x2ed928['shift']());
+        } catch (_0x132828) {
+          _0x2ed928['push'](_0x2ed928['shift']());
+        }
+      }
+    }(_0xfa73, 0x4c2fc));
+    let subscriptionKey = _0x5f584a(0xc3);
+    // ---- END OF OBFUSCATED CODE (SUBKEY) ----
 
     let body = '';
 
-    let responseHandler = function(response) {
-      response.on('data', function(data) {
+    let responseHandler = function (response) {
+      response.on('data', function (data) {
         body += data;
       })
-      response.on('end', function() {
+      response.on('end', function () {
         let json = JSON.stringify(JSON.parse(body), null, '  ')
         reqStore.save_req(json)
         reqStore.save_res(JSON.parse(json).webPages["value"])
@@ -188,21 +231,23 @@ export default {
     }
     let Search = function () {
       let request_params = {
-        method : 'GET',
-        hostname : host,
-        path : path + query,
-        headers : {
-          'Ocp-Apim-Subscription-Key' : subscriptionKey,
+        method: 'GET',
+        hostname: host,
+        path: path + query,
+        headers: {
+          'Ocp-Apim-Subscription-Key': subscriptionKey,
         }
       }
 
-      let req = https.request (request_params, responseHandler)
-      req.end ()
+      let req = https.request(request_params, responseHandler)
+      req.end()
     }
     onMounted(() => {
       Search()
     })
-    return {reqStore};
+    return {
+      reqStore
+    };
   },
   data() {
     return {
@@ -210,7 +255,7 @@ export default {
     }
   },
   methods: {
-    
+
   }
 }
 </script>

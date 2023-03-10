@@ -1,6 +1,6 @@
 <template>
   <div class="header"> 
-    <a href="/"><img class="shup-logo" src="@/assets/logo.png" alt="shup-logo"></a>
+    <a href="/"><img class="shup-logo" src="@/assets/icon.png" alt="shup-icon"></a>
     <div class="search-bar">
       <SearchBar class="search-bar" :vmodel="query || ''" title="Let's SHUP something!" sid="shup-resultbar"/>
     </div>

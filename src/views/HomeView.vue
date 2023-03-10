@@ -2,6 +2,7 @@
   <div class="home">
     <img src="../assets/logo.png" alt="Shup Logo">
     <SearchBar 
+      class="search-bar"
       title="Start a SHUP!" 
       sid="shup-searchbar"
     />
@@ -18,13 +19,13 @@
 
 @media (min-width: 1024px) {
   img {
-    width: 50%;
+    width: 40%;
   }
 }
 
 @media (max-width: 1024px) {
   img {
-    width: 40%;
+    width: 50%;
   }
 }
 

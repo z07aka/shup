@@ -1,38 +1,16 @@
 <template>
-    <form 
-        class="search-form"
-        :id="sid+'-form'"
-        method="get"
-        action="search" 
-        @focusin="focusinEvent" 
-        @focusout="timeoutFocusout"
-    >
+    <form class="search-form" :id="sid+'-form'" method="get" action="search" @focusin="focusinEvent"
+        @focusout="timeoutFocusout">
         <div class="search-bar" :id="sid+'-bar'">
-            <input 
-                class="text-input" 
-                :id="sid+'-q'" 
-                name="q" 
-                type="text" 
-                v-model="search" 
-                :placeholder="title"
-                autocomplete="off" 
-                maxlength="999" 
-            />
+            <input class="text-input" :id="sid+'-q'" name="q" type="text" v-model="search" :placeholder="title"
+                autocomplete="off" maxlength="999" />
             <button class="search-button" :id="sid+'-btn'">
                 <span class="material-symbols-outlined search-button-icon">send</span>
             </button>
         </div>
     </form>
-    <div 
-        class="suggests" 
-        v-if="active == true && prediction.length == 0"
-    >
-        <a 
-            class="suggest-link"
-            v-for="suggest in suggestions"
-            :key="suggest"
-            :href="suggest.url"
-        >
+    <div class="suggests" v-if="active == true && prediction.length == 0">
+        <a class="suggest-link" v-for="suggest in suggestions" :key="suggest" :href="suggest.url">
             <div class="suggest">
                 <div class="suggest-group">
                     <span class="material-symbols-outlined suggest-badge">mode_heat</span>
@@ -83,10 +61,10 @@ export default {
         },
         focusoutEvent(){
             document.getElementById(this.sid+'-form').style.borderBottomLeftRadius = '25px'; 
-            document.getElementById(this.sid+'-bar').style.borderBottomLeftRadius = '25px'; 
-            document.getElementById(this.sid+'-bar').style.borderBottomRightRadius = '25px'; 
-            document.getElementById(this.sid+'-q').style.borderBottomLeftRadius = '25px'; 
-            document.getElementById(this.sid+'-btn').style.borderBottomRightRadius = '25px';  
+            document.getElementById(this.sid+'-bar').style.borderBottomLeftRadius = '25px';
+            document.getElementById(this.sid+'-bar').style.borderBottomRightRadius = '25px';
+            document.getElementById(this.sid+'-q').style.borderBottomLeftRadius = '24px'; 
+            document.getElementById(this.sid+'-btn').style.borderBottomRightRadius = '24px';  
             this.active = false;
         },        
     }

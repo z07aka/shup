@@ -3,6 +3,10 @@
         width: 40%;
     }
 
+    .suggests {
+        width: 40%
+    }
+
     .search-button {
         width: 10%;
     }
@@ -15,6 +19,10 @@
 @media (max-width: 1024px) {
     .search-form {
         width: 80%;
+    }
+
+    .suggests {
+        width: 80%
     }
 
     .search-button {
@@ -48,18 +56,18 @@
     width: 90%;
 
     border: none;
-    border-radius: 25px 0 0 25px;
+    border-radius: 24px 0 0 24px;
     
     padding-left: 25px;
     outline: none;
 }
 
 .search-button {
-    border: none;
-    border-radius: 0 25px 25px 0;
+    border: transparent;
+    border-radius: 0 24px 24px 0;
 
     color: white;
-    background-color: #FF0000;
+    background-color: #D83737;
     cursor: pointer;
 }
 
@@ -68,6 +76,7 @@
 }
 
 .suggests {
+    margin-left: 2px;
     border: 1px solid grey;
     border-top: none;
     border-radius: 0 0 25px 25px;
@@ -111,7 +120,7 @@
     margin-top: -2px;
     scale: 0.6;
     opacity: 0.4;
-    color: #FF0000;
+    color: #D83737;
 }
 
 .material-symbols-outlined {

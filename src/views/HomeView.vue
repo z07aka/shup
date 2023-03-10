@@ -13,16 +13,21 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  position: absolute;
-  top: 50%;
-  margin-top: -25%;
   user-select: none;
 }
 
-img {
-  width: 40%;
+@media (min-width: 1024px) {
+  img {
+    width: 50%;
+  }
 }
+
+@media (max-width: 1024px) {
+  img {
+    width: 40%;
+  }
+}
+
 </style>
 
 <script>
